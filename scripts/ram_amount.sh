@@ -25,6 +25,8 @@ print_ram_amount() {
 }
 
 main() {
-  print_ram_amount
+  # print_ram_amount
+  # free -m | awk 'NR==2{printf "%s/%sMB (%.2f%%)\n", $3,$2,$3*100/$2 }'
+  free -m | awk 'NR==2{printf "%s/%sMB", $3,$2,$3*100/$2 }'
 }
 main
